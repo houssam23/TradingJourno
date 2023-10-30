@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Currency Pair</title>
+</head>
+<body>
+    <h2>Edit Currency Pair</h2>
+    <form action="{{ url_for('edit_pair', pair_id=pair[0]) }}" method="post">
+        <label>Base Currency:</label>
+        <input type="text" name="base_currency" maxlength="3" value="{{ pair[1] }}">
+        
+        <label>Quote Currency:</label>
+        <input type="text" name="quote_currency" maxlength="3" value="{{ pair[2] }}">
+        
+        <button type="submit">Update Pair</button>
+    </form>
+</body>
+</html>

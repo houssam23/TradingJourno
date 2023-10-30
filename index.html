@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Trading Journal</title>
+</head>
+<body>
+    <h1>Forex Trading Journal</h1>
+
+    <!-- Form to Add a Trade -->
+    <form action="/add_trade" method="post">
+        <input type="number" name="pair_id" placeholder="Currency Pair ID" required>
+        <input type="datetime-local" name="entry_date" required>
+        <input type="text" name="entry_price" placeholder="Entry Price" required>
+        <select name="direction">
+            <option value="long">Long</option>
+            <option value="short">Short</option>
+        </select>
+        <button type="submit">Add Trade</button>
+    </form>
+
+    <!-- Displaying the trades in a table -->
+    <h2>Existing Trades</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Trade ID</th>
+                <th>Currency Pair ID</th>
+                <th>Entry Date</th>
+                <th>Entry Price</th>
+                <th>Direction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trade in trades %}
+                <tr>
+                    <td>{{ trade[0] }}</td>
+                    <td>{{ trade[1] }}</td>
+                    <td>{{ trade[2] }}</td>
+                    <td>{{ trade[3] }}</td>
+                    <td>{{ trade[4] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
